@@ -125,8 +125,11 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                             if ($sayfa > $toplamsayfa) $sayfa = $toplamsayfa;
                                             $limit = ($sayfa - 1) * $listelenen;
 
+if($sayi>=1)
+{
 
                                             foreach ($db->query("select product_name,product_brand,car_brand,product_serial,status,seflink FROM cms_products LIMIT $limit, $listelenen") as $gelen) {
+                                              
                                                 ?>
                                              <tr>
                                               <td><?php echo $gelen[0]; ?>
@@ -244,10 +247,12 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                     </td>
                                                  <?php
                                                 }
+                                            }
 ?>
                                              </tr>
                                                 <?php
                                             }
+                                        
                                            ?>
 
                                         </table>
@@ -267,6 +272,8 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                         echo '<li class="page-item"><a class="page-link"href="?sayfa=' . $s . '">' . $s . '</a></li> ';
                                                     }
                                                 }
+
+                                            
                                                 ?>
 
                                             </ul>
